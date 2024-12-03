@@ -1,4 +1,4 @@
-package tugaske4.repo;
+package tugaske4.utils;
 
 public interface PurchaseInterface {
     public Double getAfterTaxPrice();

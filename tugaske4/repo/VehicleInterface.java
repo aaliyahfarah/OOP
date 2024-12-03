@@ -5,4 +5,5 @@ import tugaske4.Vehicle;
 public interface VehicleInterface {
     void displayInterface();
     void addInterface(Vehicle vehicle);
+    Boolean deleteVehicle(String inputId);
 }

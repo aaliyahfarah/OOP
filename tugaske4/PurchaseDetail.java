@@ -1,29 +1,29 @@
 package tugaske4;
 
 import java.util.ArrayList;
-import tugaske4.repo.PurchaseInterface;
 
-public class PurchaseDetail implements PurchaseInterface{
+public class PurchaseDetail {
     private ArrayList<Vehicle> vehicles;
-    private ArrayList<Purchase> purchases;
     VehicleManager vehicleManage;
 
-    private String vehicleId;
+    private String inputVehicleId;
     private Double afterTaxPrice;
     private String inputPurchaseId;  
 
-    public PurchaseDetail(String vehicleId, VehicleManager vehicleManage, String inputPurchaseId) {
+    public PurchaseDetail(String inputVehicleId, VehicleManager vehicleManage, String inputPurchaseId) {
         this.inputPurchaseId = inputPurchaseId;
         this.vehicleManage = vehicleManage;
         this.vehicles = vehicleManage.getVehicles(); 
-        this.vehicleId = vehicleId;
-        this.afterTaxPrice = getAfterTaxPrice(vehicleId);
+        this.inputVehicleId = inputVehicleId;
+        this.afterTaxPrice = getAfterTaxPrice(inputVehicleId);
     }
 
     public String getVehicleId() {
-        return vehicleId;
+        return inputVehicleId;
     }
 
+    //over loading?
+    
     public Double getAfterTaxPrice() {
         return afterTaxPrice;
     }
