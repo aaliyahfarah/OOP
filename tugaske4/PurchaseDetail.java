@@ -47,7 +47,6 @@ public class PurchaseDetail {
         return "{" +
             "vehicleId='" + getVehicleId() + "'" +
             ", afterTaxPrice='" + String.format("%.2f", getAfterTaxPrice()) + "'" +
-            ", inputPurchaseId='" + inputPurchaseId + "'" +
             "}";
     }
 

@@ -1,8 +1,12 @@
 package tugaske4;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TugasEmpat {
+    static ArrayList<Purchase> purchaseList = new ArrayList<>();
+
+
 // gunakan fitur transaksi dari use case yg sudah dibuat pada tugas sebelumnya
 // transformasikan code program dari fitur use case yang sudah dibuat dengan menggunakan OOP
 // wajib menggunakan Class & Object
@@ -16,6 +20,7 @@ public class TugasEmpat {
 
         CustomerManager custmanage = new CustomerManager();
         VehicleManager vehiclemanage = new VehicleManager();
+
         startProgram(custmanage, vehiclemanage);
         chooseMenu(custmanage, vehiclemanage);
         
@@ -52,6 +57,7 @@ public class TugasEmpat {
         purchase.displayPurchaseDetails();
 
         Purchase purchase1 = new Purchase(1, "Credit");
+        purchaseList.add(purchase1); 
 
         // Create PurchaseDetails
         purchase1.checkPurchaseDetail("2-77239325", vehiclemanage);
@@ -87,10 +93,11 @@ public class TugasEmpat {
     public static void displayRegister(CustomerManager custmanage, VehicleManager vehiclemanage) {
         Scanner custScanner = new Scanner(System.in);
 
+        System.out.println("\n" + "----- Mneu Registrasi Customer -----");
         String[] atributCustomer = {"Nama Depan", "Nama Belakang", "Nomor Telepon", "Alamat"};
         String[] inputCustomer = new String[4];
 
-        CustomerManager custmanage1 = new CustomerManager();
+        //CustomerManager custmanage1 = new CustomerManager();
 
         for (int i = 0; i < 4; i++) {
             System.out.println("Masukkan " + atributCustomer[i] + ": ");
@@ -100,8 +107,8 @@ public class TugasEmpat {
         Integer checkId = custmanage.checkCustomerData(inputCustomer[2]);
         if(checkId == -2){
             Customer customer = new Customer(inputCustomer[0], inputCustomer[1], inputCustomer[2], inputCustomer[3]);
-            custmanage1.addInterface(customer);
-            custmanage1.displayInterface();
+            custmanage.addInterface(customer);
+            custmanage.displayInterface();
         }
         else{
             System.out.println("Customer gagal ditambahkan ");
@@ -111,7 +118,7 @@ public class TugasEmpat {
     }
 
     public static void displayAddPurchase(CustomerManager custmanage, VehicleManager vehiclemanage) {
-        System.out.println("\n" + "----- Tambah Pembelian -----");
+        System.out.println("\n" + "----- Menu Pembelian Kendaraan-----");
 
         Scanner purchaseScanner = new Scanner(System.in);
 
@@ -127,6 +134,7 @@ public class TugasEmpat {
             String inputPaymentMethod = purchaseScanner.nextLine();
 
             Purchase purchase = new Purchase(checkId, inputPaymentMethod);
+            purchaseList.add(purchase); 
 
             Integer num;
             do {

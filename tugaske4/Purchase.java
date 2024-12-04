@@ -18,7 +18,7 @@ public class Purchase extends BaseModel{
         this.paymentMethod = paymentMethod;
         this.purchaseDetails = new ArrayList<>();
         this.totalPrice = 0.0;
-        this.date = setDate();
+        this.date = getCurrentDate();
     }
     
     public static String GenerateId(){
@@ -42,11 +42,19 @@ public class Purchase extends BaseModel{
         this.paymentMethod = paymentMethod;
     }
 
+    public ArrayList<PurchaseDetail> getPurchaseDetails() {
+        return purchaseDetails;
+    }
+
+    public void setPurchaseDetails(ArrayList<PurchaseDetail> purchaseDetails) {
+        this.purchaseDetails = purchaseDetails;
+    }
+
     public String getDate() {
         return this.date;
     }
 
-    private String setDate() {
+    private String getCurrentDate() {
         // Get current date in "yyyy-MM-dd" format
         LocalDate currentDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -109,5 +117,5 @@ public class Purchase extends BaseModel{
             }
             System.out.println("\n");
         }
-    }    
+    }  
 }
