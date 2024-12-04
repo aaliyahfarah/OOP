@@ -5,3 +5,8 @@
 - wajib menggunakan Polimorphism (boleh pilih antara Override / Overload)
 - wajib menggunakan Encapsulation
 - wajib menggunakan Abstraction (boleh pilih antara Partial / Full)
+
+catatan:
+- Polymorphid: over loading (satu tujuan beda cara)
+- abstraction (view, edit delete)
+- Inheritance: pending
